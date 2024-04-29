@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -105,12 +104,11 @@ class CalculatorState extends State<Calculator> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              //this is button Zero
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.fromLTRB(34, 20, 128, 20),
                   shape: const StadiumBorder(),
-                  backgroundColor: Colors.grey.shade800,
+                  backgroundColor: Colors.grey.shade800
                 ),
                 onPressed: (){
                   calculation('0');
@@ -130,8 +128,6 @@ class CalculatorState extends State<Calculator> {
       ),
     );
   }
-
-  //Calculator logic
   dynamic text ='0';
   double numOne = 0;
   double numTwo = 0;
@@ -141,8 +137,6 @@ class CalculatorState extends State<Calculator> {
   dynamic opr = '';
   dynamic preOpr = '';
   void calculation(btnText) {
-
-
     if(btnText  == 'AC') {
       text ='0';
       numOne = 0;
@@ -151,16 +145,18 @@ class CalculatorState extends State<Calculator> {
       finalResult = '0';
       opr = '';
       preOpr = '';
-
-    } else if( opr == '=' && btnText == '=') {
-
+    }
+    else if( opr == '=' && btnText == '=') {
       if(preOpr == '+') {
         finalResult = add();
-      } else if( preOpr == '-') {
+      }
+      else if( preOpr == '-') {
         finalResult = sub();
-      } else if( preOpr == 'x') {
+      }
+      else if( preOpr == 'x') {
         finalResult = mul();
-      } else if( preOpr == '/') {
+      }
+      else if( preOpr == '/') {
         finalResult = div();
       }
 
@@ -194,32 +190,24 @@ class CalculatorState extends State<Calculator> {
       }
       finalResult = result;
     }
-
     else if(btnText == '+/-') {
       result.toString().startsWith('-') ? result = result.toString().substring(1): result = '-$result';
       finalResult = result;
-
     }
-
     else {
       result = result + btnText;
       finalResult = result;
     }
-
-
     setState(() {
       text = finalResult;
     });
-
   }
-
 
   String add() {
     result = (numOne + numTwo).toString();
     numOne = double.parse(result);
     return doesContainDecimal(result);
   }
-
   String sub() {
     result = (numOne - numTwo).toString();
     numOne = double.parse(result);
@@ -235,8 +223,6 @@ class CalculatorState extends State<Calculator> {
     numOne = double.parse(result);
     return doesContainDecimal(result);
   }
-
-
   String doesContainDecimal(dynamic result) {
 
     if(result.toString().contains('.')) {
