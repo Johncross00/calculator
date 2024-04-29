@@ -15,12 +15,11 @@ class MyApp extends StatelessWidget {
 class Calculator extends StatefulWidget {
   const Calculator({super.key});
   @override
-  _CalculatorState createState() => _CalculatorState();
+  CalculatorState createState() => CalculatorState();
 }
 
-class _CalculatorState extends State<Calculator> {
+class CalculatorState extends State<Calculator> {
   dynamic displaytxt = 20;
-  //Button Widget
   Widget calcbutton(String btntxt,Color btncolor,Color txtcolor){
     return  ElevatedButton(
       style: ElevatedButton.styleFrom(
