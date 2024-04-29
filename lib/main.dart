@@ -25,6 +25,7 @@ class CalculatorState extends State<Calculator> {
         backgroundColor: btnColor,
         shape: const CircleBorder(),
         padding: const EdgeInsets.all(20),
+        minimumSize: const Size(80, 0),
       ),
       onPressed: (){
         calculation(btnTxt);
